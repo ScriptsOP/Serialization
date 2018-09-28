@@ -28,15 +28,6 @@ public class SchuelerBL extends AbstractListModel {
     }
     
     public void load(File f) throws Exception {
-//        BufferedReader br = new BufferedReader(new FileReader(f));
-//        
-//        String line;
-//        
-//        while((line = br.readLine()) != null) {
-//            String[] attr = line.split(";");
-//            this.add(new Schueler(attr[0], LocalDate.parse(attr[0], DateTimeFormatter.ISO_DATE)));
-//        }
-
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
         
         Object o;
