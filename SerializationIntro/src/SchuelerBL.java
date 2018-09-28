@@ -1,11 +1,10 @@
 
-import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.AbstractListModel;
 
@@ -29,13 +28,25 @@ public class SchuelerBL extends AbstractListModel {
     }
     
     public void load(File f) throws Exception {
-        BufferedReader br = new BufferedReader(new FileReader(f));
+//        BufferedReader br = new BufferedReader(new FileReader(f));
+//        
+//        String line;
+//        
+//        while((line = br.readLine()) != null) {
+//            String[] attr = line.split(";");
+//            this.add(new Schueler(attr[0], LocalDate.parse(attr[0], DateTimeFormatter.ISO_DATE)));
+//        }
+
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
         
-        String line;
+        Object o;
         
-        while((line = br.readLine()) != null) {
-            String[] attr = line.split(";");
-            this.add(new Schueler(attr[0], LocalDate.parse(attr[0], DateTimeFormatter.ISO_DATE)));
+        try {
+            while ((o = ois.readObject()) != null) {
+                klasse.add((Schueler) o);
+            }
+        } catch (IOException ioExc) {
+            //
         }
     }
     
