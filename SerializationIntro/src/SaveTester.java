@@ -1,13 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author JoZuG
- */
+import java.io.File;
+import java.time.LocalDate;
+
+
 public class SaveTester {
     
+    public static void main(String[] args) {
+        Schueler s1 = new Schueler("Hans", LocalDate.of(2003, 3, 1));
+        Schueler s2 = new Schueler("Grette", LocalDate.of(1999, 10, 10));
+        
+        SchuelerBL bl = new SchuelerBL();
+        bl.add(s1);
+        bl.add(s2);
+        
+        try {
+            bl.save(new File("C:\\Users\\JoZuG\\Documents\\Serialization\\Serialization\\SerializationIntro"));
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 }

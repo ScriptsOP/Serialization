@@ -4,19 +4,18 @@ import java.time.LocalDate;
 
 public class Schueler {
     private String name;
-    private LocalDate brithday;
+    private LocalDate birthday;
     
     public Schueler(String name, LocalDate brithday) {
         this.name = name;
-        this.brithday = brithday;
+        this.birthday = brithday;
     }
     
     public String getName() {
         return name;
     }
 
-    public LocalDate getBrithday() {
-        return brithday;
+    public LocalDate getBirthday() {
+        return birthday;
     }
-
 }
