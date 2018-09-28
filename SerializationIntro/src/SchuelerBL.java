@@ -19,16 +19,6 @@ public class SchuelerBL extends AbstractListModel {
     }
     
     public void save(File f) throws Exception {
-//        BufferedWriter bw = new BufferedWriter(new FileWriter(f));
-//        for (Schueler s : klasse) {
-//            bw.write(s.getName());
-//            bw.write(";");
-//            bw.write(s.getBirthday().toString());
-//            bw.newLine();
-//        }
-//        bw.flush();
-//        bw.close();
-
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
         
         for (Schueler s : klasse) {

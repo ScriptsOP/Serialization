@@ -13,7 +13,7 @@ public class LoadTester {
         
         try {
             bl.load(new File("./klasse.csv"));
-            System.out.println(bl.load("./klasse.csv"));
+           
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
