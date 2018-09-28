@@ -1,7 +1,6 @@
 
 import java.time.LocalDate;
 
-
 public class Schueler {
     private String name;
     private LocalDate birthday;

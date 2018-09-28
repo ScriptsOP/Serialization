@@ -3,18 +3,16 @@ import java.io.File;
 import java.time.LocalDate;
 
 
-public class SaveTester {
+public class LoadTester {
     
     public static void main(String[] args) {
-        Schueler s1 = new Schueler("Hans", LocalDate.of(2003, 3, 1));
-        Schueler s2 = new Schueler("Grette", LocalDate.of(1999, 10, 10));
-        
         SchuelerBL bl = new SchuelerBL();
-        bl.add(s1);
-        bl.add(s2);
+        
+        bl.add(new Schueler("Hans", LocalDate.of(2002, 5, 7)));
+        bl.add(new Schueler("Grete", LocalDate.of(2001, 3, 1)));
         
         try {
-            bl.save(new File("./klasse.csv"));
+            bl.load(new File("./klasse.csv"));
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
